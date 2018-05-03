@@ -1,0 +1,4 @@
+.demo{
+  @include abs_center(600px, 400px);
+  box-shadow: 0 0 6px rgba($color: #000, $alpha: .2);
+}
