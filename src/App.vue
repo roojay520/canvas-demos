@@ -1,14 +1,28 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/demo01" class="link">demo1</router-link>
-      <router-link to="/demo02" class="link">demo2</router-link>
-      <router-link to="/demo03" class="link">demo3</router-link>
-      <router-link to="/demo04" class="link">demo4</router-link>
+      <router-link
+        class="link"
+        v-for="(route, index) in routes"
+        :key="index"
+        :to="route.path">
+        {{route.name}}
+      </router-link>
     </div>
     <router-view/>
   </div>
 </template>
+<script>
+import { routes } from './router';
+
+export default {
+  data() {
+    return {
+      routes,
+    };
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
