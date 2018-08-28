@@ -21,3 +21,5 @@ export const colors = {
   grey: '#9e9e9e',
   blueGrey: '#607d8b',
 };
+export default colors;
+

@@ -5,8 +5,6 @@
 </template>
 <script>
 import { getRandom } from '../utils/helper';
-import { colors } from '../utils/color';
-import { drawRect } from '../utils/canvas';
 
 export default {
   data() {
@@ -24,16 +22,18 @@ export default {
       const context = canvas.getContext('2d');
       canvas.width = this.width;
       canvas.height = this.height;
-      drawRect(context, 150, 50, 300, 300);
-      const color = Object.values(colors);
+      this.$canvas.drawRect(context, 150, 50, 300, 300);
+      const color = Object.values(this.$colors);
       const len = color.length;
+      const options = (i) => ({
+        x: 150 + (i * 10),
+        y: 50 + (i * 10),
+        width: 300 - (i * 20),
+        height: 300 - (i * 20),
+        color: color[getRandom(len)],
+      });
       for (let i = 1; i < 15; i++) {
-        drawRect(
-          context,
-          150 + (i * 10), 50 + (i * 10),
-          300 - (i * 20),
-          300 - (i * 20), color[getRandom(len)],
-        );
+        this.$canvas.drawRect(context, options(i));
       }
     },
 

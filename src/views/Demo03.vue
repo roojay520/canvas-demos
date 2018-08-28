@@ -4,8 +4,6 @@
   </div>
 </template>
 <script>
-import { colors } from '../utils/color';
-import { drawLine } from '../utils/canvas';
 
 export default {
   data() {
@@ -25,8 +23,20 @@ export default {
       canvas.height = this.height;
 
       // 参考线
-      drawLine(context, 100, 0, 100, 400, colors.grey);
-      drawLine(context, 500, 0, 500, 400, colors.grey);
+      this.$canvas.drawLine(context, {
+        startX: 100,
+        startY: 0,
+        endX: 100,
+        endY: 400,
+        color: this.$colors.grey,
+      });
+      this.$canvas.drawLine(context, {
+        startX: 500,
+        startY: 0,
+        endX: 500,
+        endY: 400,
+        color: this.$colors.grey,
+      });
 
       /**
        * lineCap 定义上下文中线的端点状态
@@ -39,7 +49,7 @@ export default {
       context.moveTo(100, 100);
       context.lineTo(500, 100);
       context.lineCap = 'butt';
-      context.strokeStyle = colors.red;
+      context.strokeStyle = this.$colors.red;
       context.lineWidth = 14;
       context.stroke();
       context.closePath();
@@ -48,7 +58,7 @@ export default {
       context.moveTo(100, 200);
       context.lineTo(500, 200);
       context.lineCap = 'round';
-      context.strokeStyle = colors.green;
+      context.strokeStyle = this.$colors.green;
       context.lineWidth = 14;
       context.stroke();
       context.closePath();
@@ -57,7 +67,7 @@ export default {
       context.moveTo(100, 300);
       context.lineTo(500, 300);
       context.lineCap = 'square';
-      context.strokeStyle = colors.blue;
+      context.strokeStyle = this.$colors.blue;
       context.lineWidth = 14;
       context.stroke();
       context.closePath();

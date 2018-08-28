@@ -8,15 +8,9 @@
 export default {
   data() {
     return {
-      config: {
-        width: 600,
-        height: 400,
-        lineWidth: 6,
-        green: '#34a853',
-        red: '#ea4335',
-        blue: '#5f97f6',
-        yellow: '#fbbc05',
-      },
+      width: 600,
+      height: 400,
+      lineWidth: 6,
     };
   },
   mounted() {
@@ -30,8 +24,8 @@ export default {
       const context = canvas.getContext('2d');
 
       // 设置 canvas 大小
-      canvas.width = this.config.width;
-      canvas.height = this.config.height;
+      canvas.width = this.width;
+      canvas.height = this.height;
 
       /**
        * canvas 使用笛卡尔坐标系, canvas 画布的左上角为坐标系的原点,
@@ -43,8 +37,8 @@ export default {
       context.moveTo(100, 100);
       context.lineTo(500, 100);
       // 设置画笔宽度与颜色
-      context.lineWidth = this.config.lineWidth;
-      context.strokeStyle = this.config.red;
+      context.lineWidth = this.lineWidth;
+      context.strokeStyle = this.$colors.red;
       // 确定绘制有两种方法: fill() 填充和 stroke() 描边。
       context.stroke();
       // closePath() 闭合图形, 可以去除两个线段闭合时的缺口，仅对本次绘制状态有效。
@@ -58,8 +52,8 @@ export default {
       context.beginPath();
       context.moveTo(500, 100);
       context.lineTo(500, 300);
-      context.lineWidth = this.config.lineWidth;
-      context.strokeStyle = this.config.yellow;
+      context.lineWidth = this.lineWidth;
+      context.strokeStyle = this.$colors.yellow;
       context.stroke();
       context.closePath();
 
@@ -67,8 +61,8 @@ export default {
       context.beginPath();
       context.moveTo(500, 300);
       context.lineTo(100, 300);
-      context.lineWidth = this.config.lineWidth;
-      context.strokeStyle = this.config.blue;
+      context.lineWidth = this.lineWidth;
+      context.strokeStyle = this.$colors.blue;
       context.stroke();
       context.closePath();
 
@@ -76,8 +70,8 @@ export default {
       context.beginPath();
       context.moveTo(100, 300);
       context.lineTo(100, 100);
-      context.lineWidth = this.config.lineWidth;
-      context.strokeStyle = this.config.green;
+      context.lineWidth = this.lineWidth;
+      context.strokeStyle = this.$colors.green;
       context.stroke();
       context.closePath();
 
@@ -88,10 +82,10 @@ export default {
       context.lineTo(350, 250);
       context.lineTo(250, 250);
       context.lineTo(250, 150);
-      context.lineWidth = this.config.lineWidth;
-      context.strokeStyle = this.config.green;
+      context.lineWidth = this.lineWidth;
+      context.strokeStyle = this.$colors.green;
       // 设置填充颜色
-      context.fillStyle = this.config.green;
+      context.fillStyle = this.$colors.green;
       // 填充图形
       context.fill();
       context.stroke();
